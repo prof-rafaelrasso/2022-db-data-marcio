@@ -1,0 +1,36 @@
+@startuml marcio_system
+
+entity cliente   {
+    *id : int <<PK>> NOT NULL
+    --
+    *nome : varchar(50) NOT NULL
+    *nascimento : date NOT NULL
+    *cpf : char(11) NOT NULL
+    *rg : varchar(20) NOT NULL
+    *endereco : varchar(200) NULL 
+}
+
+entity pedido_venda  {
+    *id : int <<PK>> NOT NULL
+    --
+    *emissao : date NOT NULL
+    *quantidade_total: decimal(6,4) NOT NULL
+}
+
+entity pedido_venda_item {
+    *id : int <<PK>> NOT NULL
+    --
+    *pedido_venda_fk: int <<FK>> NOT NULL
+    *produto_fk: int <<FK>> NOT NULL
+    *quatidade: decimal(6,4) NOT NULL
+}
+
+entity produto {
+    *id : int <<PK>> NOT NULL
+    --
+    *nome: varchar(100) NOT NULL
+    *estoque: decimal(6,4) NOT NULL
+}
+
+
+@enduml
