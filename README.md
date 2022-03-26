@@ -9,3 +9,8 @@
 
 ## Instalando o graphviz no linux
 sudo apt install graphviz 
+
+# Docker Hub
+
+- https://hub.docker.com/
+- https://hub.docker.com/_/postgres

@@ -1,36 +1,75 @@
 @startuml marcio_system
 
 entity cliente   {
-    *id : int <<PK>> NOT NULL
+    *id : int NOT NULL [PK]
     --
     *nome : varchar(50) NOT NULL
     *nascimento : date NOT NULL
     *cpf : char(11) NOT NULL
     *rg : varchar(20) NOT NULL
-    *endereco : varchar(200) NULL 
+}
+
+entity endereco {
+     *id : int NOT NULL [PK]
+    --
+    *cliente_fk : int NOT NULL [FK]
+    *cidade_fk: int NOT NULL [FK]
+    --
+    *logradouro : varchar(100) NOT NULL
+    *cep : char(8) NOT NULL
+    *numero: varchar(5) NULL
+    *sem_numero: bool NOT NULL
+    *bairro: varchar(50) NOT NULL
+    *tipo: int NOT NULL
+    *complemento varchar(50) NULL
+    *ponto_referencia varchar(50) NULL
+}
+
+entity cidade {
+    *id : int NOT NULL [PK]
+    --
+    *nome: varchar(50) NOT NULL
+    *uf: char(2) NOT NULL 
 }
 
 entity pedido_venda  {
-    *id : int <<PK>> NOT NULL
+    *id : int NOT NULL [PK]
+    --
+    *cliente_fk: int NOT NULL [FK]
     --
     *emissao : date NOT NULL
     *quantidade_total: decimal(6,4) NOT NULL
 }
 
 entity pedido_venda_item {
-    *id : int <<PK>> NOT NULL
+    *id : int NOT NULL [PK]
     --
-    *pedido_venda_fk: int <<FK>> NOT NULL
-    *produto_fk: int <<FK>> NOT NULL
+    *pedido_venda_fk: int NOT NULL [FK]
+    *produto_fk: int NOT NULL [FK]
+    --
     *quatidade: decimal(6,4) NOT NULL
 }
 
 entity produto {
-    *id : int <<PK>> NOT NULL
+    *id : int  NOT NULL [PK]
     --
     *nome: varchar(100) NOT NULL
-    *estoque: decimal(6,4) NOT NULL
 }
+
+entity estoque {
+   *id : int NOT NULL [PK]
+   *quantidade: decimal(6,4) NOT NULL 
+}
+
+cliente::id --|{ endereco::cliente_fk
+cliente::id --|{ pedido_venda::cliente_fk
+
+cidade::id --|{ endereco::cidade_fk
+pedido_venda::id --|{ pedido_venda_item::pedido_venda_fk
+
+produto::id --|{ pedido_venda_item::produto_fk
+produto::id --|| estoque::id
+
 
 
 @enduml
