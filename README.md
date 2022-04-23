@@ -1,4 +1,4 @@
-# database-2022
+# Repositório da Turma de 2022 de Banco de Dados 
 
 # Coisas importantes
 
