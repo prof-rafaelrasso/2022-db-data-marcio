@@ -1,6 +1,6 @@
 # Repositório da Turma de 2022 de Banco de Dados 
 
-# Coisas importantes
+# Links importantes
 
 - https://plantuml.com/
 - https://plantuml.com/ie-diagram
