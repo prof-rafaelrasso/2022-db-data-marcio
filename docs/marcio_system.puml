@@ -61,14 +61,14 @@ entity estoque {
    *quantidade: decimal(6,4) NOT NULL 
 }
 
-cliente::id --|{ endereco::cliente_fk
-cliente::id --|{ pedido_venda::cliente_fk
+cliente ||-right-|{ endereco
+cliente ||--|{ pedido_venda
 
-cidade::id --|{ endereco::cidade_fk
-pedido_venda::id --|{ pedido_venda_item::pedido_venda_fk
+cidade ||--|{ endereco
+pedido_venda ||--|{ pedido_venda_item
 
-produto::id --|{ pedido_venda_item::produto_fk
-produto::id --|| estoque::id
+produto ||-left-|{ pedido_venda_item
+produto ||-up-|| estoque
 
 
 
