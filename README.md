@@ -14,3 +14,8 @@ sudo apt install graphviz
 
 - https://hub.docker.com/
 - https://hub.docker.com/_/postgres
+
+
+# Comando para subir o pgAdmin e o postgres com Docker
+
+- docker-compose up -d 
