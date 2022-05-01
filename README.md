@@ -2,12 +2,11 @@
 
 # Instalar 
 
-## Windows
-
 - https://www.docker.com/products/docker-desktop/
 - https://graphviz.org/download/
 - https://code.visualstudio.com/Download
 - https://git-scm.com/downloads
+  - https://flywaydb.org/documentation/usage/commandline/#download-and-installation
 
 # Links Importantes
 
