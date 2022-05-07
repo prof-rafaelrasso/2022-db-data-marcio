@@ -1,0 +1,24 @@
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Acrelândia', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Assis Brasil', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Brasiléia', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Bujari', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Capixaba', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Cruzeiro do Sul', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Epitaciolândia', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Feijó', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Jordão', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Mâncio Lima', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Manoel Urbano', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Marechal Thaumaturgo', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Plácido de Castro', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Porto Acre', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Porto Walter', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Rio Branco', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Rodrigues Alves', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Santa Rosa do Purus', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Sena Madureira', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Senador Guiomard', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')),'Tarauacá', 'AC');
+INSERT INTO cidade (id, nome, uf) VALUES ((select nextval('cidade_id_seq')), 'Xapuri', 'AC');
+
+commit;
