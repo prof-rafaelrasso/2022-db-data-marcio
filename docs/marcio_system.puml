@@ -9,6 +9,11 @@ entity cliente   {
     *rg : varchar(20) NOT NULL
 }
 
+note left of cliente
+    **cliente_id_seq:** SEQUENCE para geração do ID;
+    **cliente_cpf_uk:** UNIQUE constraint na column cpf;
+end note
+
 entity endereco {
      *id : int NOT NULL [PK]
     --
@@ -20,17 +25,27 @@ entity endereco {
     *numero: varchar(5) NULL
     *sem_numero: bool NOT NULL
     *bairro: varchar(50) NOT NULL
-    *tipo: int NOT NULL
+    *tipo: char(1) NOT NULL
     *complemento varchar(50) NULL
     *ponto_referencia varchar(50) NULL
 }
+
+note right of endereco
+    **endereco_id_seq:** SEQUENCE para geração do ID;
+    **endereco_tipo_ck:** CHECK constraint para verificar set tipo igual a C (comeracial) ou R (residencial)
+end note
 
 entity cidade {
     *id : int NOT NULL [PK]
     --
     *nome: varchar(50) NOT NULL
-    *uf: char(2) NOT NULL 
+    *uf: char(2) NOT NULL [CK]
 }
+
+note top of cidade
+    **cidade_id_seq:** SEQUENCE para geração do ID;
+    **cidade_uf_ck:** CHECK constraint na column uf verifica se => uf in ('UFs brasileiras');
+end note
 
 entity pedido_venda  {
     *id : int NOT NULL [PK]
@@ -41,6 +56,11 @@ entity pedido_venda  {
     *quantidade_total: decimal(6,4) NOT NULL
 }
 
+note left of pedido_venda
+    **pedido_venda_id_seq:** SEQUENCE para geração do ID;
+    **pedido_venda_quantidade_ck:** CHECK constraint para garantir quantidade positiva;
+end note
+
 entity pedido_venda_item {
     *id : int NOT NULL [PK]
     --
@@ -50,16 +70,32 @@ entity pedido_venda_item {
     *quatidade: decimal(6,4) NOT NULL
 }
 
+note left of pedido_venda_item
+    **pedido_venda_item_id_seq:** SEQUENCE para geração do ID;
+    **pedido_venda_item_quantidade_ck:** CHECK constraint para garantir quantidade positiva;
+end note
+
 entity produto {
     *id : int  NOT NULL [PK]
     --
     *nome: varchar(100) NOT NULL
+    *codigo: int NOT NULL
 }
 
+note right of produto
+    **produto_id_seq:** SEQUENCE para geração do ID;
+    **produto_codigo_seq:** SEQUENCE para geração do código como valor padrão;
+    **produto_codigo_uk:** UNIQUE constraint na column codigo;
+end note
+
 entity estoque {
-   *id : int NOT NULL [PK]
+   *id : int NOT NULL [PFK]
    *quantidade: decimal(6,4) NOT NULL 
 }
+
+note right of estoque
+    **estoque_quantidade_ck:** CHECK constraint para garantir quantidade positiva;
+end note
 
 cliente ||-right-|{ endereco
 cliente ||--|{ pedido_venda

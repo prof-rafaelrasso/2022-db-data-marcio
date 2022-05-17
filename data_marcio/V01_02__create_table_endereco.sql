@@ -8,7 +8,7 @@ create table endereco
     numero           varchar(5)   NULL,
     sem_numero       bool         NOT NULL,
     bairro           varchar(50)  NOT NULL,
-    tipo             int          NOT NULL,
+    tipo             char(1)         NOT NULL,
     complemento      varchar(50)  NULL,
     ponto_referencia varchar(50)  NULL,
     constraint pk_endereco primary key (id)

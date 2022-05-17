@@ -1,0 +1,1 @@
+ALTER TABLE produto ADD CONSTRAINT produto_codigo_uk UNIQUE (codigo);
